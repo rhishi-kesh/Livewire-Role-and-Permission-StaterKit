@@ -69,14 +69,14 @@
                         </svg>
                     </button>
                 </div>
-                <div>
+                {{-- <div>
                     <a href="{{ route('register') }}" class="uppercase btn md:bg-blue-500 bg-transparent border-none dark:text-[#b0b2b6] text-[#5a5b5e] md:text-white dark:md:text-white cursor-pointer px-3 pr-1 md:pr-3">
                         <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" class="icon icon-tabler icon-tabler-world inline mb-0 md:mb-1" width="20" height="20"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M16 19h6" /><path d="M19 16v6" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4" /></svg>
                         <span class="hidden md:inline-block ms-1">
                             Add User
                         </span>
                     </a>
-                </div>
+                </div> --}}
                 <div>
                     <a
                         href="javascript:;"

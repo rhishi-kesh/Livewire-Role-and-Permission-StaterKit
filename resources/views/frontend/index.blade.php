@@ -9,7 +9,7 @@
 </head>
 <body class="w-screen h-screen bg-blue-500 flex justify-center items-center text-center">
     <div>
-        <h1 class="text-6xl font-bold text-white">Laravel With Role & Permission Stater Kit.</h1>
+        <h1 class="text-6xl font-bold text-white">Livewire Role & Permission Stater Kit.</h1>
         <p class="text-md mt-4 text-white">
             <a href="https://github.com/rhishi-kesh" class="hover:underline" target="_blank">
                 <svg class="inline-block mr-1" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

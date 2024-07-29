@@ -60,6 +60,10 @@ class AdminController extends Controller
         return view('backend.pages.register.register');
     }
 
+    public function userEdit($id) {
+        return view('backend.pages.user.editUser', compact('id'));
+    }
+
     public function users() {
         return view('backend.pages.user.user');
     }

@@ -14,6 +14,28 @@
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('dashboard/css/style.css') }}" />
         @vite('resources/css/app.css')
         @livewireStyles
+        <link rel="stylesheet" href="{{ asset('dashboard/css/nice-select2.css') }}">
+        <style>
+            .nice-select{
+                width: 99%;
+            }
+            .nice-select-dropdown{
+                width: 100%;
+            }
+            .nice-select .list li{
+                color: #000;
+            }
+            .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+                background-color: transparent;
+            }
+            .nice-select .option.selected {
+                font-weight: bold;
+                background-color: #ececec !important;
+            }
+            .nice-select .list {
+                max-height: 125px;
+            }
+        </style>
         @stack('css')
     </head>
     <body x-data="main" class="relative overflow-x-hidden font-nunito text-sm font-normal" :class="[ $store.app.sidebar ? 'toggle-sidebar' : '', $store.app.theme === 'dark' || $store.app.isDarkMode ?  'dark' : '', $store.app.menu, $store.app.layout,$store.app.rtlClass]">
@@ -62,19 +84,9 @@
         <script defer src="{{ asset('dashboard/js/popper.min.js') }}"></script>
         <script defer src="{{ asset('dashboard/js/tippy-bundle.umd.min.js') }}"></script>
         <script defer src="{{ asset('dashboard/js/sweetalert.min.js') }}"></script>
+        <script src="{{ asset('dashboard/js/nice-select2.js') }}"></script>
         <script src="{{ asset('dashboard/js/main.js') }}"></script>
         <script src="{{ asset('dashboard/js/custom.js') }}"></script>
-        <script>
-            document.addEventListener("alpine:init", () => {
-                Alpine.data("modal", (initialOpenState = false) => ({
-                    open: initialOpenState,
-
-                    toggle() {
-                        this.open = !this.open;
-                    },
-                }));
-            });
-        </script>
         @stack('js')
     </body>
 </html>

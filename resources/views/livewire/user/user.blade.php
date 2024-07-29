@@ -11,6 +11,7 @@
                             <th class="p-3 bg-gray-100 dark:bg-gray-800 text-center">Photo</th>
                             <th class="p-3 bg-gray-100 dark:bg-gray-800 text-center">Name</th>
                             <th class="p-3 bg-gray-100 dark:bg-gray-800 text-center">Email</th>
+                            <th class="p-3 bg-gray-100 dark:bg-gray-800 text-center">Roles</th>
                             <th class="p-3 bg-gray-100 dark:bg-gray-800 text-center">Status</th>
                             <th class="p-3 bg-gray-100 dark:bg-gray-800 text-center">Action</th>
                         </tr>
@@ -36,7 +37,19 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td class="p-3 mb-2 flex justify-center">
+                                <td class="p-3 text-center">
+                                    @if(!empty($data->getRoleNames()))
+                                        @foreach ($data->getRoleNames() as $item)
+                                            <small class="inline-block bg-green-500 text-white rounded-md px-2">{{ $item }}</small>
+                                        @endforeach
+                                    @endif
+                                </td>
+                                <td class="p-3 mb-2 flex justify-center space-2">
+
+                                    {{-- Edit Button --}}
+                                    <a x-tooltip="Edit" href="{{ route('userEdit', $data->id) }}">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit text-green-500"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                                    </a>
 
                                     {{-- Delete Button --}}
                                     <button type="button" x-tooltip="Delete" wire:click="deleteAlert({{ $data->id }})">
