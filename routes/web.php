@@ -4,6 +4,7 @@ use App\Http\Controllers\auth\AdminController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\PermissionController;
 use App\Http\Controllers\dashboard\RoleController;
+use App\Http\Controllers\dashboard\SmtpController;
 use App\Http\Controllers\dashboard\SystemInformationController;
 use App\Http\Controllers\ErrorRedirectController;
 use App\Http\Controllers\frontend\FrontendController;
@@ -20,13 +21,13 @@ Route::post('/login-post', [AdminController::class, 'loginPost'])->name('loginPo
 Route::get('/404', [ErrorRedirectController::class, 'notFound'])->name('notFound');
 
 //Dashboard
-Route::group(['prefix'=>'admin', 'middleware' => ['auth', 'role:admin']], function () {
+Route::group(['prefix'=>'admin', 'middleware' => ['auth']], function () {
 
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     //Admin
-    Route::get('/register', [AdminController::class, 'register'])->name('register')->middleware('permission:user.create');
+    Route::get('/register', [AdminController::class, 'register'])->name('register');
     Route::get('/users', [AdminController::class, 'users'])->name('users');
     Route::get('/edit-user/{id}', [AdminController::class, 'userEdit'])->name('userEdit');
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
@@ -42,6 +43,9 @@ Route::group(['prefix'=>'admin', 'middleware' => ['auth', 'role:admin']], functi
     Route::get('/role-have-permission/{id}', [RoleController::class, 'roleHavePermission'])->name('roleHavePermission');
     Route::post('/permission-on-role-post', [RoleController::class, 'permissionOnRolePost'])->name('permissionOnRolePost');
     Route::get('/permission', [PermissionController::class, 'permission'])->name('permission');
+
+    //SMTP Settings
+    Route::get('/smtp-settings', [SmtpController::class, 'smtpSettings'])->name('smtpSettings');
 });
 
 

@@ -116,7 +116,7 @@
                         <a href="{{ route('systemInformation') }}">System Informations</a>
                     </li>
                     <li>
-                        <a href="">SMTP Settings</a>
+                        <a href="{{ route('smtpSettings') }}">SMTP Settings</a>
                     </li>
                 </ul>
             </li>
